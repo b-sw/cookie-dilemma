@@ -24,6 +24,9 @@ jest konsultacja z prowadzącym przed pracą nad projektem.
 ## Description
 Finding optimal solution to a cookie giveaway problem using different evolutionary algorithms.
 
+DOKUMENTACJA:
+https://www.overleaf.com/8239424254wsnrhnvmbcbm 
+
 ## Run guide
 ```
 todo
