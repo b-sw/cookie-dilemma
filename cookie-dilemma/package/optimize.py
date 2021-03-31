@@ -11,17 +11,18 @@ from data_storing import SingleRunStorage, MultipleRunStorage
 from population import *
 from evolutionary_strategy import *
 
-BUDGET = 1000 * 10
+BUDGET = 1000 * 50
 K_ITERATIONS = 5
 RUNS = 25
 
 
 def run_multiple(eval_func, optimization_algorithm):
     multiple_storage = MultipleRunStorage()
-    for _ in range(RUNS):
+    for i in range(RUNS):
         single_storage = run_whole_budget(eval_func, optimization_algorithm)
         best_eval_in_run = single_storage.best_eval_overall
         multiple_storage.best_evals.append(best_eval_in_run)
+        print('Best eval in run ' + str(i) + ': {}'.format(best_eval_in_run))
 
     return multiple_storage
 
@@ -34,7 +35,7 @@ def run_whole_budget(eval_func, optimization_algorithm):
         budget -= number_of_evals
         storage.add_eval([best_evals[-1], population.members[BEST_MEMBER].rule_fitness])
 
-        print("best eval: {} | rule fitness: {}".format(best_evals[-1], population.members[BEST_MEMBER].rule_fitness))
+        # print("best eval: {} | rule fitness: {}".format(best_evals[-1], population.members[BEST_MEMBER].rule_fitness))
 
     return storage
 
