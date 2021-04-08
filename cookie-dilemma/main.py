@@ -30,7 +30,7 @@ def main():
 
     else:  # Windows OS
 
-        argv = [100, 20, 20 * 7, 5, 20, 3, 'es']
+        argv = ['100', '20', '140', '5', '20', '3', 'es']
         # argv = [100, 200, 200, 5, 20, 3, 'ga']
         test_optimize(argv)
 

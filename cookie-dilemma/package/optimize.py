@@ -18,6 +18,10 @@ PARAMS = {}
 def set_params(argv):
     global PARAMS
 
+    for i in range(0, len(argv) - 1):
+        argv[i] = int(argv[i])
+        print(argv[i])
+
     np.random.seed(argv[0])
     random.seed(argv[0])
 
