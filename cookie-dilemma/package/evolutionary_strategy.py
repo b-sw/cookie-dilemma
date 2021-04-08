@@ -56,14 +56,16 @@ class EvolutionaryStrategy:
                 # for now boundaries check
                 if x_j < 1:
                     x_j = 1
+                elif x_j > 10:
+                    x_j = 10
 
                 offspring[i].chromosome[j] = round(x_j)
 
             eval_value = eval_func.evaluate(offspring[i].chromosome)
-            rule_penalty_points = eval_func.rule_penalty_points
+            # rule_penalty_points = eval_func.rule_penalty_points
 
             offspring[i].fitness = eval_value
-            offspring[i].rule_fitness = rule_penalty_points
+            # offspring[i].rule_fitness = rule_penalty_points
 
         return offspring
 

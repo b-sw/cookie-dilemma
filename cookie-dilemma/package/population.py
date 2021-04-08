@@ -20,8 +20,16 @@ def evolve(population, eval_func, algorithm):
     offspring = algorithm.mate(selection)
     offspring = algorithm.mutate(offspring, eval_func)
     population.members = algorithm.succeed(population, offspring)
+    # print(len(population.members))
 
     population.generation += 1
+    # print('Chromosome: {} | fitness: {}'.format(population.members[0].chromosome, population.members[0].fitness))
+    # print('Chromosome: {} | fitness: {}'.format(population.members[1].chromosome, population.members[1].fitness))
+    # print('Chromosome: {} | fitness: {}'.format(population.members[2].chromosome, population.members[2].fitness))
+    # print('Chromosome: {} | fitness: {}'.format(population.members[-1].chromosome, population.members[-1].fitness))
+    # print('\n')
+    # if population.generation % 100 == 0:
+    #     print('Generation: {}'.format(population.generation))
 
 
 class Population:
@@ -35,7 +43,7 @@ class Population:
         members = []
 
         for i in range(size):
-            x = [random.randint(BOUND_LOWER,BOUND_UPPER) for x in range(len(eval_func.grades))]
+            x = [random.randint(BOUND_LOWER, BOUND_UPPER) for x in range(len(eval_func.grades))]
             fitness = eval_func.evaluate(x)
             genotype = Genotype(x, fitness, size)
             members.append(genotype)

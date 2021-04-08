@@ -21,10 +21,7 @@ class SingleRunStorage:
 
         if self.best_eval_overall is None:
             self.best_eval_overall = best_eval
-        elif best_eval[FITNESS] < self.best_eval_overall[FITNESS]:
-            self.best_eval_overall = best_eval
-        elif best_eval[FITNESS] == self.best_eval_overall[FITNESS] and \
-                best_eval[PENALTY] < self.best_eval_overall[PENALTY]:
+        elif best_eval < self.best_eval_overall:
             self.best_eval_overall = best_eval
 
 
@@ -33,5 +30,9 @@ class MultipleRunStorage:
         self.best_evals = []
 
     def mean(self):
-        # todo
-        pass
+        mean = 0
+        for element in self.best_evals:
+            mean += element
+
+        mean /= len(self.best_evals)
+        return mean

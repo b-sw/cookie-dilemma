@@ -7,19 +7,32 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from package.eval_func import *
-from test.eval_func import test_eval
-import numpy as np
+from test_package.optimize import test_optimize
+import sys
+
+ARGC = 7
 
 
 def main():
-    test_eval()
-    # eval_func = ObjectiveValue([1, 2, 5, 3, 4, 9, 8, 2, 6, 7])
-    # rand_list = np.random.randint(1, high=11, size=50)
-    # print(rand_list)
-    # eval_func = ObjectiveValue(rand_list)
-    #
-    # storage = run_multiple(eval_func, optimize_by_es)
+    argv = sys.argv[1:]
+    """
+        0 - seed
+        1 - population size
+        2 - offspring size
+        3 - k value for k-iterations criterion
+        4 - dimensionality
+        5 - # of runs
+        6 - element of [ga, es], Genetic Algorithm or Evolutionary Strategy
+    """
+    if len(argv) == ARGC:  # Linux OS
+
+        test_optimize(argv)
+
+    else:  # Windows OS
+
+        argv = [100, 20, 20 * 7, 5, 20, 3, 'es']
+        # argv = [100, 200, 200, 5, 20, 3, 'ga']
+        test_optimize(argv)
 
 
 if __name__ == '__main__':

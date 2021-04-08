@@ -28,7 +28,6 @@ class Genotype:
     def __init__(self, chromosome, fitness, dimension):
         self.chromosome = chromosome
         self.fitness = fitness
-        self.rule_fitness = 0
 
         self.sigmas = [random.uniform(1 - SIGMA_RANGE, 1 + SIGMA_RANGE)]
 
