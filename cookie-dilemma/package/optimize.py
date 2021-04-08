@@ -7,10 +7,10 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from data_storing import SingleRunStorage, MultipleRunStorage
-from population import *
-from genetic_algorithm import *
-from evolutionary_strategy import *
+from package.data_storing import SingleRunStorage, MultipleRunStorage
+from package.population import *
+from package.genetic_algorithm import *
+from package.evolutionary_strategy import *
 
 PARAMS = {}
 

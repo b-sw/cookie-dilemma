@@ -7,7 +7,7 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from genotype import Genotype
+from package.genotype import Genotype
 import random
 
 BOUND_LOWER = 1

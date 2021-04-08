@@ -7,7 +7,7 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from eval_func import ObjectiveValue
+from package.eval_func import ObjectiveValue
 from package.optimize import *
 
 

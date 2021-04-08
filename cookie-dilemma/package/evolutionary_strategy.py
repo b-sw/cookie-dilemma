@@ -9,7 +9,7 @@
 """
 import random
 import numpy as np
-from genotype import Genotype
+from package.genotype import Genotype
 
 MU = 20
 LAMBDA = 7 * MU
