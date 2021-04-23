@@ -24,10 +24,22 @@ jest konsultacja z prowadzącym przed pracą nad projektem.
 ## Description
 Finding optimal solution to a cookie giveaway problem using different evolutionary algorithms.
 
-DOKUMENTACJA:
-https://www.overleaf.com/8239424254wsnrhnvmbcbm 
-
 ## Run guide
+### with args:
 ```
-todo
+/cookie-dilemma$ python3 ./main.py -s -p -o -k -d -r -a
+```
+#### flags: <br />
+s - seed <br />
+p - population size <br />
+o - offspring size <br />
+k - k value for k-iterations criterion <br />
+d - dimensions <br />
+r - # of runs <br />
+a - algorithm ('es' or 'ga') <br />
+
+
+### without args:
+```
+/cookie-dilemma$ python3 ./main.py
 ```
