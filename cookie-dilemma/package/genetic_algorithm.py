@@ -15,7 +15,7 @@ from package.genotype import Genotype
 
 H = 0  # number of generation members = 10 * DIM (set up at select method)
 PROB_CROSS = 0.7
-PROB_MUT = 0.1
+PROB_MUT = 0.01
 
 
 class GeneticAlgorithm:
@@ -27,31 +27,24 @@ class GeneticAlgorithm:
         q_sum = 0
         for member in population.members:
             q_sum += member.fitness
-        parents = []
-        h = 0
 
-        while h < H:
-            rand_member = random.choice(population.members)
-            p = random.uniform(0, 1)
-            p_s = 1 - rand_member.fitness / q_sum
-            if p <= p_s:
-                parents.append(rand_member)
-                h += 1
+        population_fitness = [m.fitness / q_sum for m in population.members]
+        parents = np.random.choice(population.members, H, p=population_fitness).tolist()
 
         return parents
 
     @staticmethod
-    def mate(parents):
+    def mate(selection):
         children_genotypes = []
-        dims = len(parents[0].chromosome)
+        dims = len(selection[0].chromosome)
 
         i = 0
         while i < H:
             p_c = random.uniform(0, 1)
 
             if p_c <= PROB_CROSS and i < H - 1:
-                parents = random.sample(parents, 2)
-                rand_cut = random.randint(1, dims - 1)
+                parents = random.sample(selection, 2)
+                rand_cut = random.randint(0, dims - 1)
 
                 chromosomes = [parents[0].chromosome[:rand_cut] + parents[1].chromosome[rand_cut:],
                                parents[1].chromosome[:rand_cut] + parents[0].chromosome[rand_cut:]]
@@ -63,7 +56,7 @@ class GeneticAlgorithm:
                 i += 2
 
             else:
-                children_genotypes.append(random.choice(parents))
+                children_genotypes.append(random.choice(selection))
                 i += 1
 
         return children_genotypes

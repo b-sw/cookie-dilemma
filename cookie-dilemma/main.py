@@ -10,28 +10,26 @@
 from test_package.optimize import test_optimize
 import sys
 
-ARGC = 7
+ARGC = 5
 
 
 def main():
     argv = sys.argv[1:]
-    """
-        0 - seed
-        1 - population size
-        2 - offspring size
-        3 - k value for k-iterations criterion
-        4 - dimensionality
-        5 - # of runs
-        6 - element of [ga, es], Genetic Algorithm or Evolutionary Strategy
-    """
-    if len(argv) == ARGC:  # Linux OS
 
+    if len(argv) == ARGC:  # Linux OS
+        """
+            0 - 'es'
+            1 - seed
+            2 - dimensionality
+            3 - # of runs
+            4 - k value for k-iterations criterion
+        """
         test_optimize(argv)
 
     else:  # Windows OS
 
-        argv = ['100', '20', '140', '5', '20', '3', 'es']
-        # argv = [100, 200, 200, 5, 20, 3, 'ga']
+        # argv = ['es', '100', '80', '25', '5']
+        argv = ['ga', '100', '5', '25', '5']
         test_optimize(argv)
 
 
