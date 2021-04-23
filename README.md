@@ -27,13 +27,10 @@ Finding optimal solution to a cookie giveaway problem using different evolutiona
 ## Run guide
 ### with args:
 ```
-/cookie-dilemma$ python3 ./main.py -s -p -o -k -d -r -a
+/cookie-dilemma$ python3 ./main.py -a -s -d -r
 ```
 #### flags: <br />
 s - seed <br />
-p - population size <br />
-o - offspring size <br />
-k - k value for k-iterations criterion <br />
 d - dimensions <br />
 r - # of runs <br />
 a - algorithm ('es' or 'ga') <br />
@@ -42,4 +39,9 @@ a - algorithm ('es' or 'ga') <br />
 ### without args:
 ```
 /cookie-dilemma$ python3 ./main.py
+```
+
+### script
+```
+/cookie-dilemma$ ./xscript.sh
 ```
