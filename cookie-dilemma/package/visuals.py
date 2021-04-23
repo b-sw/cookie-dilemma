@@ -8,7 +8,6 @@
     Faculty of Electronics and Information Technology
 """
 import matplotlib.pyplot as plt
-from evolutionary_strategy import EvolutionaryStrategy
 
 
 def plot_graph(data, title, x_label, y_label, graph_filename, colour):
@@ -25,7 +24,7 @@ def plot_graph(data, title, x_label, y_label, graph_filename, colour):
 
 
 def plot_single_run_properties(data, algorithm):
-    if algorithm == EvolutionaryStrategy:
+    if algorithm == 'es':
         plot_graph(data, "Single run best fits", "Number of evals", "Best fit", "esBF", 'g')
         plot_graph(data, "Single run expected fits", "Number of evals", "Expected fit", "esEF", 'r')
     else:

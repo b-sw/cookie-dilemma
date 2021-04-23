@@ -43,7 +43,7 @@ def set_params(argv):
 def run_multiple(eval_func):
     best_evals = []
     for i in range(PARAMS['runs']):
-        print('Run #{}'.format(i + 1))
+        # print('Run #{}'.format(i + 1))
         best_eval = run_whole_budget(eval_func)
         best_evals.append(best_eval)
         # print('Best eval in run ' + str(i + 1) + ': {}'.format(best_eval))
