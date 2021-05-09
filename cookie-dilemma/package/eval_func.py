@@ -29,16 +29,12 @@ class ObjectiveValue:
             epsilon = self.dimension
 
             if self.grades[i] > self.grades[i + 1] and dif <= 0:
-                # if dif == 0:
-                #     rule_penalty += epsilon
                 if math.fabs(dif) > 32:
                     rule_penalty += math.pow(2, 32)
                 else:
                     rule_penalty += epsilon*math.pow(2, math.fabs(dif))
 
             elif self.grades[i] < self.grades[i + 1] and dif >= 0:
-                # if dif == 0:
-                #     rule_penalty += epsilon
                 if dif > 32:
                     rule_penalty += math.pow(2, 32)
                 else:

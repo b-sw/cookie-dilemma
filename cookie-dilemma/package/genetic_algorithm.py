@@ -43,16 +43,17 @@ class GeneticAlgorithm:
             p_c = random.uniform(0, 1)
 
             if p_c <= PROB_CROSS and i < H - 1:
-                parents = random.sample(selection, 2)
-                rand_cut = random.randint(0, dims - 1)
-
-                chromosomes = [parents[0].chromosome[:rand_cut] + parents[1].chromosome[rand_cut:],
-                               parents[1].chromosome[:rand_cut] + parents[0].chromosome[rand_cut:]]
-
-                children = [Genotype(chromosomes[0], 0, dims),
-                            Genotype(chromosomes[1], 0, dims)]
-
-                children_genotypes += children
+                # parents = random.sample(selection, 2)
+                # rand_cut = random.randint(0, dims - 1)
+                #
+                # chromosomes = [parents[0].chromosome[:rand_cut] + parents[1].chromosome[rand_cut:],
+                #                parents[1].chromosome[:rand_cut] + parents[0].chromosome[rand_cut:]]
+                #
+                # children = [Genotype(chromosomes[0], 0, dims),
+                #             Genotype(chromosomes[1], 0, dims)]
+                #
+                # children_genotypes += children
+                children_genotypes += GeneticAlgorithm.k_point_crossover(selection, 2, dims)
                 i += 2
 
             else:
@@ -89,3 +90,23 @@ class GeneticAlgorithm:
     @staticmethod
     def succeed(population, offspring):
         return sorted(offspring, key=lambda m: m.fitness)
+
+    @staticmethod
+    def k_point_crossover(selection, k, dims):
+        parents = random.sample(selection, 2)
+        rand_cuts = sorted(random.sample(range(1, dims - 1), k))
+
+        if k > dims - 1:
+            raise Exception('k_point_crossover k too big')
+
+        chromosomes = [parents[0].chromosome[:rand_cuts[0]] + parents[1].chromosome[rand_cuts[0]:],
+                       parents[1].chromosome[:rand_cuts[0]] + parents[0].chromosome[rand_cuts[0]:]]
+
+        for i in range(1, k):
+            chromosomes = [chromosomes[0][:rand_cuts[i]] + chromosomes[1][rand_cuts[i]:],
+                           chromosomes[1][:rand_cuts[i]] + chromosomes[0][rand_cuts[i]:]]
+
+        children = [Genotype(chromosomes[0], 0, dims),
+                    Genotype(chromosomes[1], 0, dims)]
+
+        return children
