@@ -14,7 +14,7 @@ import numpy as np
 from package.genotype import Genotype
 
 H = 0  # number of generation members = 10 * DIM (set up at select method)
-PROB_CROSS = 0.7
+PROB_CROSS = 0.9
 PROB_MUT = 0.01
 
 
