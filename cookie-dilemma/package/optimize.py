@@ -7,7 +7,7 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from package.visuals import plot_single_run_properties
+from package.visuals import print_loading_bar
 from package.population import *
 from package.genetic_algorithm import *
 from package.evolutionary_strategy import *
@@ -44,9 +44,12 @@ def run_multiple(eval_func):
     best_evals = []
     for i in range(PARAMS['runs']):
         # print('Run #{}'.format(i + 1))
+        print_loading_bar(i, PARAMS['runs'])
         best_eval = run_whole_budget(eval_func)
         best_evals.append(best_eval)
         # print('Best eval in run ' + str(i + 1) + ': {}'.format(best_eval))
+
+    print_loading_bar(PARAMS['runs'], PARAMS['runs'])
 
     return best_evals
 

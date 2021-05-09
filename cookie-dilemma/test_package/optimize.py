@@ -22,7 +22,7 @@ def test_optimize(argv):
     print('Testing algorithm {} and dims={}..'.format(argv[0], argv[2]))
     optimal_solution = mip_optimize(rand_list)
     scores = run_multiple(eval_func)
-    print('Done testing algorithm {} and dims={}'.format(argv[0], argv[2]))
+    print('\nDone testing algorithm {} and dims={}'.format(argv[0], argv[2]))
 
     output = [optimal_solution, min(scores), round(sum(scores)/len(scores), 2), round(float(np.std(scores)), 2)]
     # print('fits: {}\nbest fit: {}\nexpected fit: {}\nstandard deviation: {}'

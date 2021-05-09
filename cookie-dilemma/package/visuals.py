@@ -30,3 +30,9 @@ def plot_single_run_properties(data, algorithm):
     else:
         plot_graph(data, "Single run best fits", "Number of evals", "Best fit", "gaBF", 'g')
         plot_graph(data, "Single run expected fits", "Number of evals", "Expected fit", "gaEF", 'r')
+
+
+def print_loading_bar(i, total):
+    done = '#' * i
+    left = '-' * (total - i)
+    print('\rOptimizing: ' + str(round((i / total) * 100, 2)) + '% ' + '[' + done + left + ']', end='')
