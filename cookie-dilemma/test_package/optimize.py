@@ -16,7 +16,7 @@ def test_optimize(argv):
     set_params(argv)
 
     rand_list = np.random.randint(1, high=11, size=PARAMS['dims'])
-    print('Grades: {}'.format(rand_list))
+    # print('Grades: {}'.format(rand_list))
     eval_func = ObjectiveValue(rand_list)
 
     print('Testing algorithm {} and dims={}..'.format(argv[0], argv[2]))
