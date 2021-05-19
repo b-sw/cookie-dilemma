@@ -7,7 +7,7 @@
     Warsaw University of Technology
     Faculty of Electronics and Information Technology
 """
-from package.visuals import print_loading_bar
+from package.visuals import print_loading_bar, plot_single_run_properties
 from package.population import *
 from package.genetic_algorithm import *
 from package.evolutionary_strategy import *
@@ -64,8 +64,8 @@ def run_whole_budget(eval_func):
         best_fit, _, evals, _, best_fits, expected_fits, generation_evals = optimize(eval_func, budget)
 
         # if TMP_FLAG == 1:
-        #     plot_single_run_properties([generation_evals, expected_fits], PARAMS['algorithm'])
-        #     plot_single_run_properties([generation_evals, best_fits], PARAMS['algorithm'])
+        #     plot_single_run_properties([generation_evals, expected_fits], PARAMS['algorithm'], "Single run expected fits", "Expected fit", "gaEF", 'r')
+        #     plot_single_run_properties([generation_evals, best_fits], PARAMS['algorithm'], "Single run best fits", "Best fit", "gaBF", 'g')
         #     TMP_FLAG = 0
 
         budget -= evals

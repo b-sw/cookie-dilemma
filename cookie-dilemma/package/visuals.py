@@ -23,13 +23,11 @@ def plot_graph(data, title, x_label, y_label, graph_filename, colour):
     plt.savefig('output/' + graph_filename + '.jpg')
 
 
-def plot_single_run_properties(data, algorithm):
+def plot_single_run_properties(data, algorithm, title, y_label, graph_filename, colour):
     if algorithm == 'es':
-        plot_graph(data, "Single run best fits", "Number of evals", "Best fit", "esBF", 'g')
-        plot_graph(data, "Single run expected fits", "Number of evals", "Expected fit", "esEF", 'r')
+        plot_graph(data, title, "Number of evals", y_label, graph_filename, colour)
     else:
-        plot_graph(data, "Single run best fits", "Number of evals", "Best fit", "gaBF", 'g')
-        plot_graph(data, "Single run expected fits", "Number of evals", "Expected fit", "gaEF", 'r')
+        plot_graph(data, title, "Number of evals", y_label, graph_filename, colour)
 
 
 def print_loading_bar(i, total):
