@@ -29,7 +29,7 @@ def main():
     else:  # Windows OS
 
         # argv = ['es', '100', '10', '25', '5']
-        argv = ['ga', '100', '40', '25', '5']
+        argv = ['ga', '100', '5', '25', '5']
         test_optimize(argv)
 
 

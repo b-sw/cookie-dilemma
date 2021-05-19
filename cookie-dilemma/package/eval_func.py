@@ -33,14 +33,14 @@ class ObjectiveValue:
                 #     rule_penalty += math.pow(2, 32)
                 # else:
                 #     rule_penalty += epsilon*math.pow(2, math.fabs(dif))
-                rule_penalty += 10 * math.fabs(dif)
+                rule_penalty += 10 * (math.fabs(dif) + 1)
 
             elif self.grades[i] < self.grades[i + 1] and dif >= 0:
                 # if dif > 32:
                 #     rule_penalty += math.pow(2, 32)
                 # else:
                 #     rule_penalty += epsilon*math.pow(2, dif)
-                rule_penalty += 10 * math.fabs(dif)
+                rule_penalty += 10 * (math.fabs(dif) + 1)
 
         self.rule_penalty_points = rule_penalty
 
