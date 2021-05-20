@@ -11,7 +11,7 @@ from package.genotype import Genotype
 import random
 
 BOUND_LOWER = 1
-BOUND_UPPER = 5
+BOUND_UPPER = 3
 BEST_MEMBER = 0
 
 
