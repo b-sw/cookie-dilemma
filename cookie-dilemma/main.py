@@ -8,6 +8,7 @@
     Faculty of Electronics and Information Technology
 """
 from test_package.optimize import test_optimize
+from test_package.mip import test_mip
 import sys
 
 ARGC = 5
@@ -28,9 +29,10 @@ def main():
 
     else:  # Windows OS
 
-        # argv = ['es', '100', '10', '25', '5']
-        argv = ['ga', '100', '40', '25', '5']
-        test_optimize(argv)
+        # argv = ['es', '100', '10', '10', '5']
+        # argv = ['es', '100', '80', '10', '5']
+        # test_optimize(argv)
+        test_mip()
 
 
 if __name__ == '__main__':

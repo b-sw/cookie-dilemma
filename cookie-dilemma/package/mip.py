@@ -1,6 +1,6 @@
 """
-    Name:
-    Purpose:
+    Name: mip
+    Purpose: mixed integer programming method implementation
 
     @author Bartosz Świtalski, Marcel Kawski
 
@@ -20,6 +20,8 @@ def mip_optimize(problem):
 
     # define the problem
     prob = pl.LpProblem("cookie-dilemma", pl.LpMinimize)
+    # print("Defined problem: ")
+    # print(prob)
 
     # objective function - maximize value of objects in knapsack
     prob += sum(solution)
@@ -31,9 +33,11 @@ def mip_optimize(problem):
         if problem[i] < problem[i - 1]:
             prob += solution[i] - solution[i - 1] <= -1
 
+    # print("After adding objective function and constraints:")
+    # print(prob)
     prob.solve(pl.PULP_CBC_CMD(msg=0))
-    # status = prob.solve()  # solve using the default solver, which is cbc
-    # print(pl.LpStatus[status])  # print the human-readable status
+    # status = prob.solve(pl.PULP_CBC_CMD(msg=0))
+    # print("Status after solving: ", pl.LpStatus[status])  # print the human-readable status
 
     # print the values
     # for element in solution:
